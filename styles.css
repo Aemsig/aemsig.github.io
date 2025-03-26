@@ -21,7 +21,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 5%;
-    background-color: #fff;
+    background-color: #E8F5E9; /* Light green background */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     z-index: 1000;
 }
@@ -45,11 +45,13 @@ body {
 .nav-links li a {
     padding: 0.5rem 1rem;
     text-decoration: none;
-    color: #333;
+    color: #1B5E20; /* Dark green text */
+    font-weight: 500; /* Slightly bolder text */
+    transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-    color: #2E7D32;
+    color: #2E7D32; /* Medium green on hover */
 }
 
 /* Sections General */
@@ -244,43 +246,44 @@ section {
 }
 
 .product-demo {
-    max-width: 1200px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    align-items: start;
 }
 
-.product-image {
-    text-align: center;
+.product-image-container,
+.product-video-container {
+    display: flex;
+    flex-direction: column;
 }
 
-.prototype-image {
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.image-caption {
-    margin-top: 1rem;
-    font-style: italic;
-    color: #666;
-}
-
-.video-container {
+.media-box {
     position: relative;
-    padding-bottom: 56.25%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.video-container iframe {
+.media-box img,
+.media-box iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
     border-radius: 10px;
+}
+
+.image-caption,
+.video-caption {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #666;
+    text-align: center;
 }
 
 /* Milestones Section */
@@ -534,5 +537,19 @@ footer {
     
     .feature-grid {
         grid-template-columns: 1fr; /* Stack on small screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-image {
+        height: 30px;
+    }
+    
+    .nav-links {
+        font-size: 0.9rem;
+    }
+    
+    .product-demo {
+        grid-template-columns: 1fr;
     }
 } 
